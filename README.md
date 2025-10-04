@@ -41,9 +41,9 @@ Preparing a research paper for submission to a leading Intelligent Transportatio
 
 🛠️ Tech Stack (Work in Progress)
 
-Languages: Python, MATLAB
+Languages: Python
 
-Libraries: NumPy, Pandas, Scikit-learn, PyTorch
+Libraries: NumPy, Pandas, Scikit-learn, Tensorflow
 
 Simulation Tools: SUMO (Simulation of Urban Mobility), Veins, OMNeT++
 
@@ -63,10 +63,6 @@ Security Mechanisms: PKI, trust evaluation frameworks, ML-based anomaly detectio
 📄 Drafting a research paper for conference submission
 
 🔮 Future Work
-
-Implement federated learning-based anomaly detection for real-time scalability.
-
-Explore blockchain-based decentralized trust management in vehicular networks.
 
 Design privacy-preserving authentication protocols for vehicle communication.
 
