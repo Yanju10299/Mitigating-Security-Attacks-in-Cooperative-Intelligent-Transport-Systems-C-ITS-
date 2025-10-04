@@ -48,13 +48,12 @@ Libraries: NumPy, Pandas, Scikit-learn, PyTorch
 Simulation Tools: SUMO (Simulation of Urban Mobility), Veins, OMNeT++
 
 Security Mechanisms: PKI, trust evaluation frameworks, ML-based anomaly detection
+├── docs/                 # Research notes, literature survey, and references
+├── src/                  # Experimental scripts for simulation & analysis
+├── data/                 # Datasets / synthetic traffic data for testing
+├── results/              # Output logs, attack simulation outcomes
+└── README.md             # Project overview
 
-📂 Repository Structure (In Progress)
-├── docs/                 # Literature survey, research notes, references
-├── src/                  # Code for simulations, anomaly detection, trust models
-├── data/                 # Synthetic traffic datasets & logs
-├── results/              # Experimental outputs & visualizations
-└── README.md             # Project overview (this file)
 
 🚀 Current Status
 
