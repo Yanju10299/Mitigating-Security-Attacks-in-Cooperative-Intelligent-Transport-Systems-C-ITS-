@@ -1,81 +1,148 @@
-🚗 Mitigating Security Attacks in Cooperative Intelligent Transport Systems (C-ITS)
+🚗🔐 VANET Malicious Node Detection using Message-Backtracking
+A Security Framework for Detecting Message Tampering in Vehicular Networks (C-ITS / VANETs)
 
-📌 Summer Internship (May 2025 – July 2025)
-👨‍🏫 Supervisor: Prof. Ashok Singh Sairam, Department of Mathematics, IIT Guwahati
+This repository contains an end-to-end implementation of a malicious-node detection framework for Vehicular Ad-Hoc Networks (VANETs), focusing on detecting message tampering attacks using a Python-based backtracking algorithm.
 
-🔍 Project Overview
+The project includes attack analysis, feature engineering, path reconstruction, and performance evaluation under varying adversarial densities.
 
-Cooperative Intelligent Transport Systems (C-ITS) enable vehicles and roadside units to exchange information, enhancing road safety, efficiency, and traffic management. However, due to their open and highly dynamic nature, they are vulnerable to cyberattacks.
+📌 Project Overview
 
-This project investigates key security threats in C-ITS, explores existing mitigation strategies, and is currently working on implementing lightweight, scalable, and real-time defense mechanisms for vehicular networks.
+Vehicular networks are vulnerable to multiple security threats due to their high mobility and decentralized architecture.
+This project develops a forensic detection pipeline that traces message propagation paths and identifies the exact node where a legitimate message was modified into a malicious one.
 
-🚦 Key Security Threats Studied
+🚀 Key Features
+🔹 1. Attack Modeling
 
-Sybil Attack – Malicious nodes create multiple fake identities to mislead traffic systems.
+Analyzed multiple VANET security threats including:
 
-Message Tampering – Unauthorized modification of safety-critical information.
+Message Tampering
 
-Denial of Service (DoS) / Jamming – Disruption of communication channels to block legitimate messages.
+Sybil Attacks
 
-Privacy Attacks – Tracking and profiling of vehicles without consent.
+Replay Attacks
 
-🛡️ Mitigation Strategies Explored
+Routing Attacks
 
-Cryptographic Authentication – PKI, digital certificates, digital signatures.
+Denial-of-Service (DoS)
 
-Trust-based Models – Reputation-based trust, cooperative evaluation systems.
+This helped establish a strong understanding of adversarial behavior in C-ITS environments.
 
-Anomaly Detection – ML-based approaches for real-time detection of abnormal message patterns.
+🔹 2. Feature Engineering
 
-📚 Research Contributions
+Performed extensive feature extraction from:
 
-Performed a literature review of state-of-the-art C-ITS security mechanisms.
+Mobility data (speed, location, trajectory)
 
-Analyzed trade-offs between security strength, computational cost, and scalability.
+Temporal data (timestamps, delays)
 
-Identified research gaps in ensuring lightweight, real-time, and scalable defense for cooperative vehicular environments.
+Beacon-level data (sender IDs, hop information)
 
-Currently developing and testing implementation models for anomaly detection & trust management.
+Designed high-impact indicators such as:
 
-Preparing a research paper for submission to a leading Intelligent Transportation Systems (ITS) conference.
+Timestamp skew
 
-🛠️ Tech Stack (Work in Progress)
+Hop-count deviations
 
-Languages: Python
+Message-content deviation metrics
 
-Libraries: NumPy, Pandas, Scikit-learn, Tensorflow
+Plausibility checks based on mobility constraints
 
-Simulation Tools: SUMO (Simulation of Urban Mobility), Veins, OMNeT++
+Applied correlation, variance-based selection, and mutual information ranking.
 
-Security Mechanisms: PKI, trust evaluation frameworks, ML-based anomaly detection
-├── docs/                 # Research notes, literature survey, and references
-├── src/                  # Experimental scripts for simulation & analysis
-├── data/                 # Datasets / synthetic traffic data for testing
-├── results/              # Output logs, attack simulation outcomes
-└── README.md             # Project overview
+🔹 3. Message-Backtracking Detection Algorithm
+
+Implemented a Python-based forensic algorithm using Pandas and NumPy to:
+
+Reconstruct message propagation paths
+
+Compare message versions at each hop
+
+Detect content inconsistencies
+
+Localize the exact node where the tampering occurred
+
+This approach ensures high interpretability and reliable identification of the attacker node.
+
+🔹 4. Performance Evaluation
+
+Evaluated system robustness under varying proportions of malicious nodes:
+
+0–20% malicious nodes → Stable precision & accuracy
+
+>25% malicious nodes → Recall & F1-score degrade sharply
+
+This demonstrates the increasing difficulty of detection in dense adversarial environments and highlights realistic system limitations.
+
+📊 Results Summary
+
+High accuracy in detecting message tampering
+
+Strong interpretability of attacker identification
+
+Reduced false positives due to precise feature selection
+
+Clear degradation trend under high adversarial density
+
+Applicable to real-world C-ITS, ITS-G5, and autonomous vehicle communication scenarios
+
+🛠️ Tech Stack
+
+Python
+
+Pandas
+
+NumPy
+
+Matplotlib / Seaborn (for visualization)
+
+Jupyter Notebook
+
+📁 Repository Structure
+│── data/                     # Raw + cleaned VANET datasets  
+│── src/
+│     ├── feature_engineering.py
+│     ├── backtracking_algorithm.py
+│     ├── utils.py
+│── notebooks/
+│     ├── analysis.ipynb
+│     ├── detection_demo.ipynb
+│── results/
+│     ├── performance_metrics.csv
+│     ├── plots/
+│── README.md
+
+📌 How to Run
+
+Clone the repository
+
+git clone https://github.com/yourusername/vanet-malicious-node-detection.git
+cd vanet-malicious-node-detection
 
 
-🚀 Current Status
+Install dependencies
 
-✔ Literature survey completed
-✔ Threat analysis & comparative study conducted
-⚙️ Implementation of anomaly detection and trust models is ongoing
-📄 Drafting a research paper for conference submission
+pip install -r requirements.txt
 
-🔮 Future Work
 
-Design privacy-preserving authentication protocols for vehicle communication.
+Run the Jupyter Notebook
 
-📖 References
+jupyter notebook
 
-IEEE Transactions on Intelligent Transportation Systems
 
-IEEE Vehicular Technology Conference Papers
+Open notebooks/detection_demo.ipynb to see the full detection pipeline.
 
-ETSI ITS Standards (EN 302 665, EN 302 637)
+🧠 Future Work
 
-👩‍💻 Author
+Integrating ML models (GNNs, LSTMs) for enhanced detection
+
+Adding GPS-spoofing and multi-vector attack detection
+
+Real-time simulation using SUMO/OMNeT++
+
+Integrating blockchain for non-repudiation
+
+✨ Author
 
 Anju Yadav
-Summer Intern @ IIT Guwahati | Department of Mathematics
-Supervised by Prof. Ashok Singh Sairam
+Security Research Intern — C-ITS, VANET, Federated Learning
+IIT Guwahati (Mathematical Sciences)
