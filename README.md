@@ -1,91 +1,73 @@
-🚗🔐 VANET Malicious Node Detection using Message-Backtracking
-A Security Framework for Detecting Message Tampering in Vehicular Networks (C-ITS / VANETs)
+🚗 VANET Malicious Node Detection (Message Tampering)
 
-This repository contains an end-to-end implementation of a malicious-node detection framework for Vehicular Ad-Hoc Networks (VANETs), focusing on detecting message tampering attacks using a Python-based backtracking algorithm.
+This project focuses on detecting message tampering attacks in Vehicular Ad-Hoc Networks (VANETs).
+It uses a Python-based backtracking approach to trace how a message travels through the network and identify the node where it was modified.
 
-The project includes attack analysis, feature engineering, path reconstruction, and performance evaluation under varying adversarial densities.
+📌 Overview
 
-📌 Project Overview
+In VANET communication, attackers can change a legitimate message into a malicious one.
+This project builds a detection system that:
 
-Vehicular networks are vulnerable to multiple security threats due to their high mobility and decentralized architecture.
-This project develops a forensic detection pipeline that traces message propagation paths and identifies the exact node where a legitimate message was modified into a malicious one.
+Tracks message flow between vehicles
 
-🚀 Key Features
-🔹 1. Attack Modeling
+Compares message content at each hop
 
-Analyzed multiple VANET security threats including:
+Detects where the message was altered
 
-Message Tampering
+Identifies the malicious node responsible
 
-Sybil Attacks
+🔧 Key Components
+1. Attack Analysis
 
-Replay Attacks
+Studied common VANET attacks such as:
 
-Routing Attacks
+Message tampering
 
-Denial-of-Service (DoS)
+Sybil
 
-This helped establish a strong understanding of adversarial behavior in C-ITS environments.
+Replay
 
-🔹 2. Feature Engineering
+Routing attacks
 
-Performed extensive feature extraction from:
+DoS
 
-Mobility data (speed, location, trajectory)
+To understand how attackers behave in vehicular networks.
 
-Temporal data (timestamps, delays)
+2. Feature Engineering
 
-Beacon-level data (sender IDs, hop information)
+Extracted useful features from:
 
-Designed high-impact indicators such as:
+Mobility data
 
-Timestamp skew
+Timestamp data
 
-Hop-count deviations
+Beacon / communication logs
 
-Message-content deviation metrics
+Selected the most important features for detecting abnormal behavior.
 
-Plausibility checks based on mobility constraints
+3. Backtracking Algorithm
 
-Applied correlation, variance-based selection, and mutual information ranking.
+Implemented using Pandas and NumPy:
 
-🔹 3. Message-Backtracking Detection Algorithm
+Reconstructs the message path
 
-Implemented a Python-based forensic algorithm using Pandas and NumPy to:
+Checks for content inconsistencies
 
-Reconstruct message propagation paths
+Detects the exact node where the message changed
 
-Compare message versions at each hop
+This makes the detection process simple and interpretable.
 
-Detect content inconsistencies
+4. Performance Evaluation
 
-Localize the exact node where the tampering occurred
+Tested the system with different proportions of malicious nodes:
 
-This approach ensures high interpretability and reliable identification of the attacker node.
+Up to 20% malicious nodes → system performs well
 
-🔹 4. Performance Evaluation
+Beyond 25% → recall and F1-score drop
 
-Evaluated system robustness under varying proportions of malicious nodes:
+This shows how detection becomes harder as attacks increase.
 
-0–20% malicious nodes → Stable precision & accuracy
-
->25% malicious nodes → Recall & F1-score degrade sharply
-
-This demonstrates the increasing difficulty of detection in dense adversarial environments and highlights realistic system limitations.
-
-📊 Results Summary
-
-High accuracy in detecting message tampering
-
-Strong interpretability of attacker identification
-
-Reduced false positives due to precise feature selection
-
-Clear degradation trend under high adversarial density
-
-Applicable to real-world C-ITS, ITS-G5, and autonomous vehicle communication scenarios
-
-🛠️ Tech Stack
+🛠 Tech Used
 
 Python
 
@@ -93,56 +75,24 @@ Pandas
 
 NumPy
 
-Matplotlib / Seaborn (for visualization)
-
 Jupyter Notebook
 
-📁 Repository Structure
-│── data/                     # Raw + cleaned VANET datasets  
-│── src/
-│     ├── feature_engineering.py
-│     ├── backtracking_algorithm.py
-│     ├── utils.py
-│── notebooks/
-│     ├── analysis.ipynb
-│     ├── detection_demo.ipynb
-│── results/
-│     ├── performance_metrics.csv
-│     ├── plots/
-│── README.md
-
-📌 How to Run
-
-Clone the repository
-
-git clone https://github.com/yourusername/vanet-malicious-node-detection.git
+▶️ How to Run
+git clone <repo-url>
 cd vanet-malicious-node-detection
-
-
-Install dependencies
-
 pip install -r requirements.txt
-
-
-Run the Jupyter Notebook
-
 jupyter notebook
 
 
-Open notebooks/detection_demo.ipynb to see the full detection pipeline.
+Open detection_demo.ipynb to see the full workflow.
 
-🧠 Future Work
-
-Integrating ML models (GNNs, LSTMs) for enhanced detection
-
-Adding GPS-spoofing and multi-vector attack detection
-
-Real-time simulation using SUMO/OMNeT++
-
-Integrating blockchain for non-repudiation
+📁 Structure
+src/            # Algorithms and utilities
+notebooks/      # Analysis and demo notebooks
+data/           # Datasets
+results/        # Metrics and plots
 
 ✨ Author
 
 Anju Yadav
-Security Research Intern — C-ITS, VANET, Federated Learning
-IIT Guwahati (Mathematical Sciences)
+VANET Security | C-ITS | Python
